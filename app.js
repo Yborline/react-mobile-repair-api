@@ -6,8 +6,6 @@ const {
   authRouter,
 
   // adminRouter,
-
-  // uploadRouter,
 } = require("./routes/api");
 
 // const DB_HOST = require("./config")
