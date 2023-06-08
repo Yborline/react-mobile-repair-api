@@ -1,0 +1,9 @@
+{
+    "ignore": [
+        "node_modules",
+        "models/contacts.json"
+    ],
+    "env": {
+        "JWT_KEY": "DafDE243tgfwfowLOGvcA124fz"
+    }
+}
