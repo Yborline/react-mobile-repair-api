@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 const {
-  mobileRducer,
+  brandRouter,
   authRouter,
 
   // adminRouter,
@@ -24,7 +24,7 @@ app.use(express.static("public"));
 
 app.use("/api/auth", authRouter);
 // app.use("/api/admin", adminRouter);
-// app.use("/api/mobile", clothesRouter);
+app.use("/api/brand", brandRouter);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
