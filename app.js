@@ -4,6 +4,7 @@ const cors = require("cors");
 const {
   brandRouter,
   authRouter,
+  repairRouter,
 
   // adminRouter,
 } = require("./routes/api");
@@ -25,7 +26,7 @@ app.use(express.static("public"));
 app.use("/api/auth", authRouter);
 // app.use("/api/admin", adminRouter);
 app.use("/api/brand", brandRouter);
-
+app.use("/api/action", repairRouter);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
