@@ -43,7 +43,7 @@ const repairSchema = Schema(
 const joiRepairSchema = Joi.object({
   name: Joi.string().required(),
   numberPhone: Joi.string().required(),
-  action: Joi.string().valid("repair", "diagnosis", "purchase").required(),
+  status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
   finishDay: Joi.string().required(),
   brand: Joi.string().required(),
   model: Joi.string().required(),

@@ -6,7 +6,7 @@ const getAllRepair = async (req, res, next) => {
     const allRepair = await Repair.find({});
 
     if (!allRepair.length) {
-      throw new Error("Not books");
+      throw new Error("Not phones");
     }
     const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
     const repair = allRepair.filter((item) => item.status === "repair");
