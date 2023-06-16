@@ -1,10 +1,11 @@
 const { Repair } = require("../../models");
+const { ErrorHandler } = require("../../helpers/errorHandler");
 
 const getAllRepair = async (req, res, next) => {
   try {
     const allRepair = await Repair.find({});
 
-    if (!books.length) {
+    if (!allRepair.length) {
       throw new Error("Not books");
     }
     const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
