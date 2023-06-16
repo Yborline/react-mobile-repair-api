@@ -16,6 +16,11 @@ const repairSchema = Schema(
       default: "diagnosis",
       required: true,
     },
+    statusRepair: {
+      type: String,
+      enum: ["start", "finish"],
+    },
+
     finishDay: {
       type: String,
       // required: true,
@@ -44,6 +49,7 @@ const joiRepairSchema = Joi.object({
   name: Joi.string().required(),
   numberPhone: Joi.string().required(),
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
+  statusRepair: Joi.string().valid("start", "finish"),
   finishDay: Joi.string().required(),
   brand: Joi.string().required(),
   model: Joi.string().required(),
