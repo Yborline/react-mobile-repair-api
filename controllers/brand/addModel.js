@@ -11,7 +11,7 @@ const addModel = async (req, res, next) => {
     if (reapet) {
       throw createError(409, `Item  reapet`);
     }
-    const newArray = [...oldModel.model, model];
+    const newArray = [model, ...oldModel.model];
     const updateModel = await Brand.findByIdAndUpdate(
       id,
       { model: newArray },

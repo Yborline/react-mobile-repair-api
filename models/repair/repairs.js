@@ -10,7 +10,7 @@ const repairSchema = Schema(
     numberPhone: {
       type: String,
     },
-    action: {
+    status: {
       type: String,
       enum: ["repair", "diagnosis", "purchase"],
       default: "diagnosis",
