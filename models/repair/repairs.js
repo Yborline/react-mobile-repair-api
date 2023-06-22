@@ -19,6 +19,7 @@ const repairSchema = Schema(
     statusRepair: {
       type: String,
       enum: ["start", "finish"],
+      default: "start",
     },
 
     finishDay: {
