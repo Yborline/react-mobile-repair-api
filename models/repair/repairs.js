@@ -59,6 +59,7 @@ const joiRepairSchema = Joi.object({
   model: Joi.string().required(),
   description: Joi.string().required(),
   money: Joi.number().required(),
+  phonePrice: Joi.number.required(),
 });
 
 const joiStatusRepairSchema = Joi.object({
