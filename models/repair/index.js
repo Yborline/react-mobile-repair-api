@@ -3,6 +3,7 @@ const {
   joiRepairSchema,
   joiStatusRepairSchema,
   joiStatusSchema,
+  joiTimeSchema,
 } = require("./repairs");
 
 module.exports = {
@@ -10,4 +11,5 @@ module.exports = {
   joiRepairSchema,
   joiStatusRepairSchema,
   joiStatusSchema,
+  joiTimeSchema,
 };

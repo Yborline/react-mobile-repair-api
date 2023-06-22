@@ -7,6 +7,7 @@ const {
   joiRepairSchema,
   joiStatusRepairSchema,
   joiStatusSchema,
+  joiTimeSchema,
 } = require("../../models/repair");
 const router = express.Router();
 
@@ -21,5 +22,10 @@ router.patch(
   "/statusRepair/:id",
   validation(joiStatusRepairSchema),
   ctrlWrapper(ctrl.updateStatusRepairById)
+);
+router.patch(
+  "/time/:id",
+  validation(joiTimeSchema),
+  ctrlWrapper(ctrl.updateTimeById)
 );
 module.exports = router;

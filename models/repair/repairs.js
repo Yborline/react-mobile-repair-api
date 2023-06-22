@@ -77,6 +77,10 @@ const joiStatusSchema = Joi.object({
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
 });
 
+const joiTimeSchema = Joi.object({
+  finishDay: Joi.string().required(),
+});
+
 const Repair = model("repair", repairSchema);
 
 module.exports = {
@@ -84,4 +88,5 @@ module.exports = {
   joiRepairSchema,
   joiStatusRepairSchema,
   joiStatusSchema,
+  joiTimeSchema,
 };
