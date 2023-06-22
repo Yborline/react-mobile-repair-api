@@ -17,15 +17,21 @@ const updateStatusById = async (req, res, next) => {
       throw createError(404, `Phone with id=${id} not found`);
     }
 
-    const allRepair = await Repair.find({});
-    const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
-    const repair = allRepair.filter((item) => item.status === "repair");
-    const purchase = allRepair.filter((item) => item.status === "purchase");
+    // const allRepair = await Repair.find({});
+    // const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
+    // const repair = allRepair.filter((item) => item.status === "repair");
+    // const purchase = allRepair.filter((item) => item.status === "purchase");
+
+    // res.json({
+    //   status: "success",
+    //   code: 200,
+    //   phones: { diagnosis, repair, purchase },
+    // });
 
     res.json({
       status: "success",
       code: 200,
-      phones: { diagnosis, repair, purchase },
+      result,
     });
   } catch (error) {
     next(new ErrorHandler(error.statusCode || 500, error.message));
