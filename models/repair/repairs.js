@@ -24,6 +24,7 @@ const repairSchema = Schema(
 
     finishDay: {
       type: String,
+      default: null,
       // required: true,
     },
     brand: {
@@ -55,7 +56,7 @@ const joiRepairSchema = Joi.object({
   numberPhone: Joi.string().required(),
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
   statusRepair: Joi.string().valid("start", "finish"),
-  finishDay: Joi.string(),
+  finishDay: Joi.string().allow(null),
   brand: Joi.string().required(),
   model: Joi.string().required(),
   description: Joi.string().required(),
