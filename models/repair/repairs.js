@@ -35,11 +35,15 @@ const repairSchema = Schema(
       type: String,
       required: true,
     },
-    money: {
+    moneyRepair: {
       type: Number,
       required: true,
     },
-    phonePrice: {
+    moneyDiagnosis: {
+      type: Number,
+      required: true,
+    },
+    moneyPurchase: {
       type: Number,
       required: true,
     },
@@ -60,8 +64,9 @@ const joiRepairSchema = Joi.object({
   brand: Joi.string().required(),
   model: Joi.string().required(),
   description: Joi.string().required(),
-  money: Joi.number().required(),
-  phonePrice: Joi.number().required(),
+  moneyRepair: Joi.number().required(),
+  moneyDiagnosis: Joi.number().required(),
+  moneyPurchase: Joi.number().required(),
 });
 
 const joiStatusRepairSchema = Joi.object({
