@@ -25,7 +25,7 @@ const updateStatusById = async (req, res, next) => {
     res.json({
       status: "success",
       code: 200,
-      allRepair,
+      phones: { diagnosis, repair, purchase },
     });
   } catch (error) {
     next(new ErrorHandler(error.statusCode || 500, error.message));
