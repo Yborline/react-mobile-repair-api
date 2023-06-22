@@ -37,6 +37,10 @@ const repairSchema = Schema(
       type: Number,
       required: true,
     },
+    phonePrice: {
+      type: Number,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -50,13 +54,26 @@ const joiRepairSchema = Joi.object({
   numberPhone: Joi.string().required(),
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
   statusRepair: Joi.string().valid("start", "finish"),
-  finishDay: Joi.string().required(),
+  finishDay: Joi.string(),
   brand: Joi.string().required(),
   model: Joi.string().required(),
   description: Joi.string().required(),
   money: Joi.number().required(),
 });
 
+const joiStatusRepairSchema = Joi.object({
+  statusRepair: Joi.string().valid("start", "finish").required(),
+});
+
+const joiStatusSchema = Joi.object({
+  status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
+});
+
 const Repair = model("repair", repairSchema);
 
-module.exports = { Repair, joiRepairSchema };
+module.exports = {
+  Repair,
+  joiRepairSchema,
+  joiStatusRepairSchema,
+  joiStatusSchema,
+};

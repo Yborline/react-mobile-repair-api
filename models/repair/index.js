@@ -1,3 +1,13 @@
-const { Repair, joiRepairSchema } = require("./repairs");
+const {
+  Repair,
+  joiRepairSchema,
+  joiStatusRepairSchema,
+  joiStatusSchema,
+} = require("./repairs");
 
-module.exports = { Repair, joiRepairSchema };
+module.exports = {
+  Repair,
+  joiRepairSchema,
+  joiStatusRepairSchema,
+  joiStatusSchema,
+};

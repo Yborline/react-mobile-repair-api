@@ -21,7 +21,6 @@ const getAllRepair = async (req, res, next) => {
       });
     }
   } catch (error) {
-    console.log(error);
     next(new ErrorHandler(error.statusCode || 500, error.message));
   }
 };
