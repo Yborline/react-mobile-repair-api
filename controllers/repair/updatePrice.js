@@ -1,0 +1,41 @@
+const { Repair } = require("../../models");
+const createError = require("http-errors");
+const { ErrorHandler } = require("../../helpers/errorHandler");
+
+const updatePrice = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { moneyRepair, moneyDiagnosis, moneyPurchase } = req.body;
+
+    const result = await Repair.findByIdAndUpdate(
+      id,
+      { moneyRepair, moneyDiagnosis, moneyPurchase },
+      { new: true }
+    );
+
+    if (!result) {
+      throw createError(404, `Phone with id=${id} not found`);
+    }
+
+    // const allRepair = await Repair.find({});
+    // const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
+    // const repair = allRepair.filter((item) => item.status === "repair");
+    // const purchase = allRepair.filter((item) => item.status === "purchase");
+
+    // res.json({
+    //   status: "success",
+    //   code: 200,
+    //   phones: { diagnosis, repair, purchase },
+    // });
+
+    res.json({
+      status: "success",
+      code: 200,
+      result,
+    });
+  } catch (error) {
+    next(new ErrorHandler(error.statusCode || 500, error.message));
+  }
+};
+
+module.exports = updatePrice;

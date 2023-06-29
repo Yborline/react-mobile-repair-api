@@ -81,6 +81,11 @@ const joiTimeSchema = Joi.object({
   finishDay: Joi.string().required(),
 });
 
+const joiPriceSchema = Joi.object({
+  moneyRepair: Joi.number().min(0),
+  moneyDiagnosis: Joi.number().min(0),
+  moneyPurchase: Joi.number().min(0),
+});
 const Repair = model("repair", repairSchema);
 
 module.exports = {
@@ -89,4 +94,5 @@ module.exports = {
   joiStatusRepairSchema,
   joiStatusSchema,
   joiTimeSchema,
+  joiPriceSchema,
 };

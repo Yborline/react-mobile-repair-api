@@ -8,6 +8,7 @@ const {
   joiStatusRepairSchema,
   joiStatusSchema,
   joiTimeSchema,
+  joiPriceSchema,
 } = require("../../models/repair");
 const router = express.Router();
 
@@ -27,5 +28,10 @@ router.patch(
   "/time/:id",
   validation(joiTimeSchema),
   ctrlWrapper(ctrl.updateTimeById)
+);
+router.patch(
+  "/price/:id",
+  validation(joiPriceSchema),
+  ctrlWrapper(ctrl.updatePrice)
 );
 module.exports = router;
