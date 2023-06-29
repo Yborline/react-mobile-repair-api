@@ -5,11 +5,10 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 const updateStatusRepairById = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { statusRepair } = req.body;
 
     const result = await Repair.findByIdAndUpdate(
       id,
-      { statusRepair, endRepair: Date() },
+      { ...req.body },
       { new: true }
     );
 
