@@ -3,12 +3,12 @@ const getAllRepair = require("./getAllRepair");
 const updateStatusRepairById = require("./updateStatusRepairById");
 const updateStatusById = require("./updateStatusById");
 const updateTimeById = require("./updateTimeById");
-const updatePrice = require("./updatePrice");
+const updatePriceAndOther = require("./updatePriceAndOther");
 module.exports = {
   addRepair,
   getAllRepair,
   updateStatusRepairById,
   updateStatusById,
   updateTimeById,
-  updatePrice,
+  updatePriceAndOther,
 };

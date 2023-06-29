@@ -32,6 +32,6 @@ router.patch(
 router.patch(
   "/price/:id",
   validation(joiPriceSchema),
-  ctrlWrapper(ctrl.updatePrice)
+  ctrlWrapper(ctrl.updatePriceAndOther)
 );
 module.exports = router;

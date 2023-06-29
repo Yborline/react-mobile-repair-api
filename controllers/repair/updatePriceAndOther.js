@@ -2,7 +2,7 @@ const { Repair } = require("../../models");
 const createError = require("http-errors");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 
-const updatePrice = async (req, res, next) => {
+const updatePriceAndOther = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { moneyRepair, moneyDiagnosis, moneyPurchase, description } =
@@ -17,18 +17,6 @@ const updatePrice = async (req, res, next) => {
     if (!result) {
       throw createError(404, `Phone with id=${id} not found`);
     }
-
-    // const allRepair = await Repair.find({});
-    // const diagnosis = allRepair.filter((item) => item.status === "diagnosis");
-    // const repair = allRepair.filter((item) => item.status === "repair");
-    // const purchase = allRepair.filter((item) => item.status === "purchase");
-
-    // res.json({
-    //   status: "success",
-    //   code: 200,
-    //   phones: { diagnosis, repair, purchase },
-    // });
-
     res.json({
       status: "success",
       code: 200,
@@ -39,4 +27,4 @@ const updatePrice = async (req, res, next) => {
   }
 };
 
-module.exports = updatePrice;
+module.exports = updatePriceAndOther;
