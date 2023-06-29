@@ -51,6 +51,9 @@ const repairSchema = Schema(
       type: String,
       required: true,
     },
+    endRepair: {
+      type: String,
+    },
   },
   { vaersionKey: false, timestamps: true }
 );

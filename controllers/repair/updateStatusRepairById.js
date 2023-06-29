@@ -9,7 +9,7 @@ const updateStatusRepairById = async (req, res, next) => {
 
     const result = await Repair.findByIdAndUpdate(
       id,
-      { statusRepair },
+      { statusRepair, endRepair: Date() },
       { new: true }
     );
 
