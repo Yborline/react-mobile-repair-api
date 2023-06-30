@@ -54,6 +54,10 @@ const repairSchema = Schema(
     sellPrice: {
       type: Number,
     },
+    repairPrice: {
+      type: Number,
+      default: 0,
+    },
   },
   { vaersionKey: false, timestamps: true }
 );
@@ -70,6 +74,7 @@ const joiRepairSchema = Joi.object({
   moneyRepair: Joi.number().required(),
   moneyDiagnosis: Joi.number().required(),
   moneyPurchase: Joi.number().required(),
+  repairPrice: Joi.number().default(0),
 });
 
 const joiStatusRepairSchema = Joi.object({
