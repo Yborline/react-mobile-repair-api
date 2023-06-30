@@ -79,6 +79,7 @@ const joiStatusRepairSchema = Joi.object({
 
 const joiStatusSchema = Joi.object({
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
+  finishDay: Joi.string().required(),
 });
 
 const joiTimeSchema = Joi.object({
