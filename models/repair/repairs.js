@@ -51,9 +51,9 @@ const repairSchema = Schema(
       type: String,
       required: true,
     },
-    endRepair: {
-      type: String,
-    },
+    // endRepair: {
+    //   type: String,
+    // },
   },
   { vaersionKey: false, timestamps: true }
 );
@@ -74,7 +74,7 @@ const joiRepairSchema = Joi.object({
 
 const joiStatusRepairSchema = Joi.object({
   statusRepair: Joi.string().valid("start", "finish").required(),
-  endRepair: Joi.string(),
+  finishDay: Joi.string().required(),
 });
 
 const joiStatusSchema = Joi.object({
