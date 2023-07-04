@@ -5,8 +5,13 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 const updatePriceAndOther = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { moneyRepair, moneyDiagnosis, moneyPurchase, description } =
-      req.body;
+    const {
+      moneyRepair,
+      moneyDiagnosis,
+      repairPrice,
+      moneyPurchase,
+      description,
+    } = req.body;
 
     const result = await Repair.findByIdAndUpdate(
       id,
