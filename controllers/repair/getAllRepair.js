@@ -3,7 +3,8 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 
 const getAllRepair = async (req, res, next) => {
   try {
-    const allRepair = await Repair.find({});
+    const { _id } = req.user;
+    const allRepair = await Repair.find({ owner: _id });
 
     if (!allRepair.length) {
       throw new Error("Not phones");

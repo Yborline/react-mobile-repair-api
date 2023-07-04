@@ -58,6 +58,11 @@ const repairSchema = Schema(
       type: Number,
       default: 0,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
   },
   { vaersionKey: false, timestamps: true }
 );
