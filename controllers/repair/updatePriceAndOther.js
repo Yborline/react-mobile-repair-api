@@ -10,7 +10,7 @@ const updatePriceAndOther = async (req, res, next) => {
 
     const result = await Repair.findByIdAndUpdate(
       id,
-      { moneyRepair, moneyDiagnosis, moneyPurchase, description },
+      { moneyRepair, moneyDiagnosis, moneyPurchase, repairPrice, description },
       { new: true }
     );
 
