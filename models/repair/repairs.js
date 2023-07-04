@@ -98,6 +98,7 @@ const joiPriceSchema = Joi.object({
   moneyDiagnosis: Joi.number().min(0),
   moneyPurchase: Joi.number().min(0),
   description: Joi.string(),
+  repairPrice: Joi.number().min(0),
 });
 const Repair = model("repair", repairSchema);
 
