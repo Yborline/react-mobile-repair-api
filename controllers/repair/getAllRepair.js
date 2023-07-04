@@ -4,7 +4,10 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 const getAllRepair = async (req, res, next) => {
   try {
     const { _id } = req.user;
-    const allRepair = await Repair.find({ owner: _id });
+    const allRepair = await Repair.find({ owner: _id }, "").populate(
+      "owner",
+      "_id name email"
+    );
 
     if (!allRepair.length) {
       throw new Error("Not phones");
