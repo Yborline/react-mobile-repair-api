@@ -7,6 +7,8 @@ const updateStatusById = async (req, res, next) => {
     const { id } = req.params;
     const { status, finishDay, sellPrice, statusRepair } = req.body;
 
+    const oldResult = await Repair.findById(id);
+
     const result = await Repair.findByIdAndUpdate(
       id,
       { status, finishDay, sellPrice, statusRepair },
@@ -32,6 +34,7 @@ const updateStatusById = async (req, res, next) => {
       status: "success",
       code: 200,
       result,
+      oldStatus: oldResult.status,
     });
   } catch (error) {
     next(new ErrorHandler(error.statusCode || 500, error.message));
