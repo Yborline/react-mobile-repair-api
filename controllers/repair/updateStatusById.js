@@ -15,7 +15,7 @@ const updateStatusById = async (req, res, next) => {
       { new: true }
     );
 
-    if (!result) {
+    if (!result && !oldResult) {
       throw createError(404, `Phone with id=${id} not found`);
     }
 
