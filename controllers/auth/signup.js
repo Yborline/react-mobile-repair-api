@@ -40,13 +40,11 @@ const signup = async (req, res) => {
   res.status(201).json({
     status: "success",
     code: 201,
-    data: {
-      user: {
-        email,
-        name,
-        lastName,
-        // verificationToken,
-      },
+    user: {
+      email,
+      name,
+      lastName,
+      // verificationToken,
     },
   });
 };
