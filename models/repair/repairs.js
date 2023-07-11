@@ -80,6 +80,7 @@ const joiRepairSchema = Joi.object({
   moneyDiagnosis: Joi.number().required(),
   moneyPurchase: Joi.number().required(),
   repairPrice: Joi.number().default(0),
+  sellPrice: Joi.number().default(0),
 });
 
 const joiStatusRepairSchema = Joi.object({
