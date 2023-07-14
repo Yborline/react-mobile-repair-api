@@ -9,6 +9,7 @@ const repairSchema = Schema(
     },
     numberPhone: {
       type: String,
+      default: null,
     },
     status: {
       type: String,
@@ -69,7 +70,7 @@ const repairSchema = Schema(
 
 const joiRepairSchema = Joi.object({
   name: Joi.string().required(),
-  numberPhone: Joi.string(),
+  numberPhone: Joi.string().allow(null),
   status: Joi.string().valid("repair", "diagnosis", "purchase").required(),
   statusRepair: Joi.string().valid("start", "finish"),
   finishDay: Joi.string().allow(null),
