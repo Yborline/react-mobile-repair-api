@@ -7,7 +7,9 @@ const addModel = async (req, res, next) => {
     const { model } = req.body;
     const { id } = req.params;
     const oldModel = await Brand.findById(id);
-    const reapet = oldModel.model.find((item) => item === model);
+    const reapet = oldModel.model.find(
+      (item) => item.toLocaleLowerCase() === model.toLocaleLowerCase()
+    );
     if (reapet) {
       throw createError(409, `Item  reapet`);
     }
