@@ -72,7 +72,7 @@ const googleRedirect = async (req, res) => {
     //   },
     // });
     return res.redirect(
-      `${process.env.FRONTEND_URL}?name=${result.name}&email=${result.email}`
+      `${process.env.FRONTEND_URL}/user?name=${result.name}&email=${result.email}`
     );
   }
 
@@ -82,7 +82,7 @@ const googleRedirect = async (req, res) => {
   const token = jwt.sign(payload, JWT_KEY, { expiresIn: "72h" });
   await User.findByIdAndUpdate(user._id, { token });
   return res.redirect(
-    `${process.env.FRONTEND_URL}?token=${token}&name=${user.name}&email=${user.email}`
+    `${process.env.FRONTEND_URL}/user?token=${token}&name=${user.name}&email=${user.email}`
   );
 
   // return res.status(200).json({
