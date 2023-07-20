@@ -11,7 +11,6 @@ const addModel = async (req, res, next) => {
     const reapet = oldModel.model.find(
       (item) => item.toLocaleLowerCase() === model.toLocaleLowerCase()
     );
-    console.log(reapet);
     if (reapet) {
       throw createError(409, `Item  reapet`);
     }
