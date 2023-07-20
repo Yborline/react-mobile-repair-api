@@ -18,6 +18,7 @@ const googleAuth = async (req, res) => {
     access_type: "offline",
     prompt: "consent",
   });
+
   return res.redirect(
     `https://accounts.google.com/o/oauth2/v2/auth?${stringifiedParams}`
   );
@@ -36,11 +37,12 @@ const googleRedirect = async (req, res) => {
     data: {
       client_id: process.env.GOOGLE_CLIENT_ID,
       client_secret: process.env.GOOGLE_CLIENT_SECRET,
-      redirect_uri: `${process.env.BASE_URL}/auth/google-redirect`,
+      redirect_uri: `${process.env.FRONTEND_URL}/auth/google-redirect`,
       grant_type: "authorization_code",
       code,
     },
   });
+
   const userData = await axios({
     url: "https://www.googleapis.com/oauth2/v2/userinfo",
     method: "get",
