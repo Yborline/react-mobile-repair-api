@@ -7,11 +7,13 @@ const addPhone = async (req, res, next) => {
     const { model, brand } = req.body;
     const { _id } = req.user;
     const { body } = req;
-    const oldModel = await Storage.findOne({ brand });
+    const oldModel = await Storage.find({ brand });
 
     if (oldModel) {
-      const reapet = oldModel.model === model;
-
+      const reapet = oldModel.find(
+        (item) => item.model.toLocaleLowerCase() === model.toLocaleLowerCase()
+      );
+      console.log(reapet);
       if (reapet) {
         throw new ErrorHandler(409, "Така модель вже є");
       }

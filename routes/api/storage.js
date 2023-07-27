@@ -9,5 +9,5 @@ const validationMiddleware = validation(joiStorageSchema);
 
 router.get("/", auth, ctrlWrapper(ctrl.getStorage));
 router.post("/", auth, validationMiddleware, ctrlWrapper(ctrl.addPhone));
-
+router.patch("/:id", auth, validationMiddleware, ctrlWrapper(ctrl.updatePhone));
 module.exports = router;

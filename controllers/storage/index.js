@@ -1,4 +1,4 @@
 const getStorage = require("./getStorage");
 const addPhone = require("./addPhone");
-
-module.exports = { getStorage, addPhone };
+const updatePhone = require("./updatePhone");
+module.exports = { getStorage, addPhone, updatePhone };
