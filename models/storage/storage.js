@@ -64,6 +64,7 @@ const storageSchema = Schema({
 });
 
 const joiStorageSchema = Joi.object({
+  decrement: Joi.boolean(),
   brand: Joi.string().required(),
   model: Joi.string().required(),
   spareParts: {

@@ -1,5 +1,5 @@
 const { Storage } = require("../../models");
-const addValuePhone = require("../../helpers/addValuePhone");
+const changeValuePhone = require("../../helpers/changeValuePhone");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 
 const updatePhone = async (req, res, next) => {
@@ -20,7 +20,7 @@ const updatePhone = async (req, res, next) => {
 
     const updatePhone = await Storage.findByIdAndUpdate(
       id,
-      addValuePhone(req.body, reapet),
+      changeValuePhone(req.body, reapet),
       { new: true }
     );
 
