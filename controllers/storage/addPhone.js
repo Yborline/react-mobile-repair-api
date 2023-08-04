@@ -5,7 +5,7 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 const addPhone = async (req, res, next) => {
   try {
     const { model, brand } = req.body;
-    const { _id } = req.user;
+    const { _id, name, email } = req.user;
     const { body } = req;
     const oldModel = await Storage.find({ brand });
 
@@ -20,7 +20,7 @@ const addPhone = async (req, res, next) => {
     }
     const onePhone = await Storage.create({
       ...body,
-      owner: _id,
+      owner: { _id, name, email },
     });
     res.json({
       status: "success",
