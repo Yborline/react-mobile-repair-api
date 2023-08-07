@@ -1,6 +1,5 @@
-// const clothesOperations = require("../../models/clothes");
 const { Brand } = require("../../models");
-const createError = require("http-errors");
+
 const { ErrorHandler } = require("../../helpers/errorHandler");
 const RemoveOneModel = async (req, res, next) => {
   try {
@@ -8,10 +7,6 @@ const RemoveOneModel = async (req, res, next) => {
     const { id } = req.params;
     const oldModel = await Brand.findById(id);
     const newArray = oldModel.model.filter((item) => item !== model);
-    console.log(newArray);
-    // if (reapet) {
-    //   throw createError(409, `Item  reapet`);
-    // }
 
     const updateModel = await Brand.findByIdAndUpdate(
       id,
@@ -19,7 +14,7 @@ const RemoveOneModel = async (req, res, next) => {
       { new: true }
     );
     if (!updateModel) {
-      throw createError(404, `Not found`);
+      throw new ErrorHandler(404, `Not found`);
     }
 
     res.json({

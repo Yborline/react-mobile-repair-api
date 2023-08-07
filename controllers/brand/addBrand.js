@@ -1,6 +1,4 @@
-// const clothesOperations = require("../../models/clothes");
 const { Brand } = require("../../models");
-const createError = require("http-errors");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 const getAll = async (req, res, next) => {
   try {
@@ -8,7 +6,7 @@ const getAll = async (req, res, next) => {
     const { brand: uniq } = body;
     const oneBrand = await Brand.findOne({ brand: uniq.toLowerCase() });
     if (oneBrand) {
-      throw createError(404, `Such a brand already exists!`);
+      throw new ErrorHandler(404, `Such a brand already exists!`);
     }
 
     const data = await Brand.create({

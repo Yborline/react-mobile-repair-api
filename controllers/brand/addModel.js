@@ -1,6 +1,5 @@
 // const clothesOperations = require("../../models/clothes");
 const { Brand } = require("../../models");
-const createError = require("http-errors");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 const addModel = async (req, res, next) => {
   try {
@@ -12,7 +11,7 @@ const addModel = async (req, res, next) => {
       (item) => item.toLocaleLowerCase() === model.toLocaleLowerCase()
     );
     if (reapet) {
-      throw createError(409, `Item  reapet`);
+      throw new ErrorHandler(409, `Item  reapet`);
     }
     const newArray = [model, ...oldModel.model];
     const updateModel = await Brand.findByIdAndUpdate(
@@ -21,7 +20,7 @@ const addModel = async (req, res, next) => {
       { new: true }
     );
     if (!updateModel) {
-      throw createError(404, `Not found`);
+      throw new ErrorHandler(409, `Not found`);
     }
 
     res.json({

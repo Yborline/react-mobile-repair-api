@@ -1,15 +1,12 @@
-// const clothesOperations = require("../../models/clothes");
-const createError = require("http-errors");
 const { Brand } = require("../../models");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 
 const removeBrandById = async (req, res) => {
   try {
     const { id } = req.params;
-    // const result = await clothesOperations.removeClothes(clothesId);
     const data = await Brand.findByIdAndRemove(id);
     if (!data) {
-      throw createError(404, `Product with id=${id} not found`);
+      throw new ErrorHandler(404, `Product with id=${id} not found`);
     }
 
     res.json({
