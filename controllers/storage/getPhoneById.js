@@ -1,12 +1,12 @@
 const { Storage } = require("../../models");
 const { ErrorHandler } = require("../../helpers/errorHandler");
 
-const getStorage = async (req, res, next) => {
+const getPhoneById = async (req, res, next) => {
   try {
-    const { brand } = req.params;
-    const phone = await Storage.findOne({ brand });
+    const { model } = req.params;
+    const phone = await Storage.findOne({ model });
     if (!phone) {
-      throw new ErrorHandler(404, `Product with id=${id} not found`);
+      throw new ErrorHandler(404, `Product with id=${model} not found`);
     }
     if (phone) {
       res.json({
@@ -20,4 +20,4 @@ const getStorage = async (req, res, next) => {
   }
 };
 
-module.exports = getStorage;
+module.exports = getPhoneById;
