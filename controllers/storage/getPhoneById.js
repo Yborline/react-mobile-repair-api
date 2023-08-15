@@ -3,8 +3,8 @@ const { ErrorHandler } = require("../../helpers/errorHandler");
 
 const getStorage = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const phone = await Storage.findById(id);
+    const { brand } = req.params;
+    const phone = await Storage.findOne({ brand });
     if (!phone) {
       throw new ErrorHandler(404, `Product with id=${id} not found`);
     }
